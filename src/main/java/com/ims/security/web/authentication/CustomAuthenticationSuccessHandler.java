@@ -29,6 +29,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
     @Override
     public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
+        System.out.println("success");
         handle(request, response, authentication);
         clearAuthenticationAttributes(request);
     }
@@ -37,7 +38,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
     protected void handle(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
         final String targetUrl = determineTargetUrl(authentication);
-
         if (response.isCommitted()) {
             logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
             return;
@@ -52,6 +52,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         boolean isAuthority = false;
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (final GrantedAuthority grantedAuthority : authorities) {
+            System.out.println("granted authority is " +  grantedAuthority.getAuthority());
             if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
                 isUser = true;
                 break;

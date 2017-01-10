@@ -29,6 +29,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/agent.html");
         registry.addViewController("/user.html");
         registry.addViewController("/authority.html");
+        registry.addViewController("/createTicket.html");
+        registry.addViewController("/tickets.html");
     }
 
     @Bean

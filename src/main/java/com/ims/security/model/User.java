@@ -30,6 +30,18 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", email='" + email + '\'' +
+				", role=" + role +
+				'}';
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -70,9 +82,6 @@ public class User {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "First Name:" + this.firstName + " Last Name:" + this.lastName + " Username:" + this.username;
-	}
+
 
 }

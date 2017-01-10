@@ -10,6 +10,7 @@
 	<http use-expressions="true">
 		<intercept-url pattern="/anonymous*" access="isAnonymous()" />
 		<intercept-url pattern="/login*" access="permitAll" />
+		<intercept-url pattern="/*Ticket*" access="permitAll" />
 		<intercept-url pattern="/**" access="isAuthenticated()" />
 
 		<form-login login-page='/login.html'
@@ -19,6 +20,8 @@
 		<logout logout-success-url="/login.html" delete-cookies="JSESSIONID" />
 
 		<remember-me key="uniqueAndSecret" token-validity-seconds="86400" />
+
+		<csrf disabled="true"/>
 
 	</http>
 
